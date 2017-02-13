@@ -68,8 +68,8 @@ The Electric Imp IDE provides all the tools you need to write and deploy the sof
 ![Empty IDE](http://i.imgur.com/Ui7w8eG.png)
 
  - In the pop up name your code model, select your device and click *Create Model* button
- - Copy and Paste the [agent code](https://raw.githubusercontent.com/electricimp/Salesforce/master/examples/SmartRefrigerator/SmartRefrigerator_ExplorerKit_Salesforce.agent.nut) from github into the left side agent window
- - Copy and Paste the [device code](https://raw.githubusercontent.com/electricimp/Salesforce/master/examples/SmartRefrigerator/SmartRefrigerator_ExplorerKit_Salesforce.device.nut) from github into the right side device window
+ - Copy and Paste the [agent code](./SmartRefrigerator_ExplorerKit_Salesforce.agent.nut) from github into the left side agent window
+ - Copy and Paste the [device code](./SmartRefrigerator_ExplorerKit_Salesforce.device.nut) from github into the right side device window
 
  ![IDE code windows](./png/15.png)
 
