@@ -1,7 +1,7 @@
 # SalesforceHeroku
 Sample of the Salesforce/Heroku integration
 
-## 1 Intro - What you need
+## Intro - What you need
 
 ### General
  - Your WIFI *network name* and *password*
@@ -24,7 +24,7 @@ And if you want to install the board into a fridge:
 
 ## Getting Started
 
-### Step 2: Setup the Electric Imp hardware
+### Step 1: Setup the Electric Imp hardware
 
 First we will need to assemble the Electric Imp Developer Kit.  The kit comes with (1) the imp001 card, which has a WiFi radio and micorocontroller which drives all the logic for the board, (2) the Explorer Kit board into which the card is plugged.  The Explorer Kit board provides a set of sensors and peripherals which are ready to use. For this project will read temperature, humidity, accelerometer data and light to determine the current state of your fridge.
 
@@ -47,7 +47,7 @@ Use the Electric Imp mobile app to BlinkUp your device
 
  If you have any issues getting started with your Electric Imp account or device, see [the full getting started guide](https://electricimp.com/docs/gettingstarted/quickstartguide/).
 
-### Step 3: Add Code for the Electric Imp
+### Step 2: Add Code for the Electric Imp
 
 #### How Electric Imp's connectivity platform works
 
@@ -73,7 +73,7 @@ The Electric Imp IDE provides all the tools you need to write and deploy the sof
 
  ![IDE code windows](./png/15.png)
 
-### Step 4: Create a Custom Object in Salesforce
+### Step 3: Create a Custom Object in Salesforce
 
 #### Creating a Custom Object in Salesforce
 
@@ -132,7 +132,7 @@ You will need to create a custom object with fields that correspond to each key 
 9. You will be redirected to the *Custom Object - your object name* page
 ![Salesforce API Name](./png/18.png)
 
-### Step 5: Create a Custom Case Field in Salesforce
+### Step 4: Create a Custom Case Field in Salesforce
 
 We want the cases opened to contain the Device ID for our refrigerator.  To do this we need to create a custom field for our Salesforce case.  Here are the step by step instructions for creating a Custom Case Field:
 
@@ -158,7 +158,7 @@ We want the cases opened to contain the Device ID for our refrigerator.  To do t
 9. You will be redirected to the *Case Custom Field - your field name* page
 ![Salesforce Case Custom Field](./png/17.png)
 
-### Step 6: Create a Heroku App
+### Step 5: Create a Heroku App
 
 Step by step instructions to create a Heroku App:
 
@@ -207,11 +207,11 @@ Step by step instructions to create a Heroku App:
 	- Click **Connect to Dropbox** button in the **Connect to Dropbox** section
 		- In the popup window click **Allow** button to give Heroku access to your **Dropbox**
 		![Heroku - Dropbox](./png/13.png)
-	- Upload Heroku code files to your Dropbox account (Dropbox/Apps/Heroku/<your-app-name>)
+	- Upload Heroku code files to your Dropbox account (Dropbox/Apps/Heroku/\<your-app-name\>)
 	- Enter commit message and click **Deploy** button in the **Deploy changes** section
 	![Heroku - Dropbox - deploy](./png/14.png)
 
-### Step 7: Build and Run the Electric Imp Application
+### Step 6: Build and Run the Electric Imp Application
 
 Go to the Electric Imp IDE and select your device from the sidebar for the final setup steps.
 
@@ -223,7 +223,7 @@ Go to the Electric Imp IDE and select your device from the sidebar for the final
 
 Your App should now be up and running.  You can monitor the device logs in the IDE, or log into Salesforce web portal to see updates there.
 
-### Step 8: Install Device in Refrigerator
+### Step 7: Install Device in Refrigerator
 
 Open your refrigerator and place the Explorer Kit on a shelf in your refrigerator door.
 
@@ -231,7 +231,7 @@ Open your refrigerator and place the Explorer Kit on a shelf in your refrigerato
 
 If you don't have a fridge handy for this scenario, you can test the door being open by moving or tapping the kit, and keeping the Imp in a lit room.  A door open for thirty seconds should register a case.
 
-### Step 9: Monitor the data in Salesforce1
+### Step 8: Monitor the data in Salesforce1
 
 Now that you have connected your Imp to Salesforce, it might be handy to see that data on a mobile device.  Using Salesforce1, it is easy to keep track of your Smart Fridge on the go.
 
@@ -306,7 +306,7 @@ Next we’ll emulate the Salesforce1 Mobile App in the Chrome web browser:
 9. Select a record to view the details of the reading.
 
 
-### Step 10: Use Process Builder to Chatter Fridge data
+### Step 9: Use Process Builder to Chatter Fridge data
 
 Finally, let's add some finesse to our application by using Process Builder to drive a Chatter conversation based on the incoming readings, which create the case.
 
