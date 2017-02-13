@@ -71,7 +71,6 @@ The Electric Imp IDE provides all the tools you need to write and deploy the sof
  - Copy and Paste the [agent code](https://raw.githubusercontent.com/electricimp/Salesforce/master/examples/SmartRefrigerator/SmartRefrigerator_ExplorerKit_Salesforce.agent.nut) from github into the left side agent window
  - Copy and Paste the [device code](https://raw.githubusercontent.com/electricimp/Salesforce/master/examples/SmartRefrigerator/SmartRefrigerator_ExplorerKit_Salesforce.device.nut) from github into the right side device window
  - Near the bottom of the IDE is the logs window where you can find your agent url. It will look something like this ```"https://agent.electricimp.com/szPc0sLfAqlu"```
- - Make a note of your agent url. You will need the it when creating your connected app in Salesforce.
 
  ![IDE code windows](http://i.imgur.com/IfVDZoq.png)
 
@@ -132,7 +131,6 @@ You will need to create a custom object with fields that correspond to each key 
     - Step 4 of 4
       - click **Save**
 9. You will be redirected to the *Custom Object - your object name* page
-    - Make a note of your **API Name** (you will need to enter this into your agent code)
 ![Salesforce API Name](http://i.imgur.com/tL6ar7Z.png)
 
 ### Step 5: Create a Custom Case Field in Salesforce
@@ -159,7 +157,6 @@ We want the cases opened to contain the Device ID for our refrigerator.  To do t
     - Step 4 of 4
       - click **Save**
 9. You will be redirected to the *Case Custom Field - your field name* page
-    - Make a note of your **API Name** - this must be *Related_Fridge__c*
 ![Salesforce Case Custom Field](http://i.imgur.com/UuEJDnh.png)
 
 ### Step 6: Create a Heroku App
