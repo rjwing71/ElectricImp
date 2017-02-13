@@ -57,6 +57,13 @@ const TABLE_NAMES = {
     });
 })();
 
+/**
+ * sUpdate - update fridge table at postgres
+ * Returns: Promise
+ * Parameters:
+ *     query : object - parsed query of the request
+ *     received : string - body's text of the request
+ */
 function sUpdate(query, received){
     return promise(query, received, function(query, resolve, reject){
         if (query['deviceId__c'] === undefined) {
@@ -141,6 +148,13 @@ function sUpdate(query, received){
         });
     });
 }
+/**
+ * sCase - update case table at postgres
+ * Returns: Promise
+ * Parameters:
+ *     query : object - parsed query of the request
+ *     received : string - body's text of the request
+ */
 function sCase(query, received){
     return promise(query, received, function(query, resolve, reject){
         if (query['Subject'] === undefined || query['Description'] === undefined || query['Related_Fridge__r'] === undefined) {
@@ -211,6 +225,16 @@ function sCase(query, received){
         });
     });
 }
+/**
+ * _sCase - second part of the sCase function
+ * Returns: undefined
+ * Parameters:
+ *     query : object - parsed query of the request
+ *     resolve : function - Promise resolve function
+ *     reject : function - Promise reject function
+ *     client : object - postgres client
+ *     done : function - postgres on done fuction
+ */
 function _sCase(query, resolve, reject, client, done){
     let sql = "INSERT INTO " + TABLE_NAMES['case'] + " (Subject, Description, Related_Fridge__r__deviceId__c) VALUES ('" + query['Subject'] + "', '" + query['Description'] + "', '" + query['Related_Fridge__r']['DeviceId__c'] + "') RETURNING Id";
     client.query(sql, function(err, result) {
@@ -235,6 +259,14 @@ function _sCase(query, resolve, reject, client, done){
     });
 }
 
+/**
+ * promise - parse query and body of the request and continue with proceed function
+ * Returns: Promise
+ * Parameters:
+ *     query : object - parsed query of the request
+ *     received : string - body's text of the request
+ *     proceed : function - function for processing
+ */
 function promise(query, received, proceed){
     return new Promise((resolve, reject) => {
         let jsonReceived = null;

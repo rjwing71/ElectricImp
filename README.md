@@ -70,9 +70,8 @@ The Electric Imp IDE provides all the tools you need to write and deploy the sof
  - In the pop up name your code model, select your device and click *Create Model* button
  - Copy and Paste the [agent code](https://raw.githubusercontent.com/electricimp/Salesforce/master/examples/SmartRefrigerator/SmartRefrigerator_ExplorerKit_Salesforce.agent.nut) from github into the left side agent window
  - Copy and Paste the [device code](https://raw.githubusercontent.com/electricimp/Salesforce/master/examples/SmartRefrigerator/SmartRefrigerator_ExplorerKit_Salesforce.device.nut) from github into the right side device window
- - Near the bottom of the IDE is the logs window where you can find your agent url. It will look something like this ```"https://agent.electricimp.com/szPc0sLfAqlu"```
 
- ![IDE code windows](http://i.imgur.com/IfVDZoq.png)
+ ![IDE code windows](./png/15.png)
 
 ### Step 4: Create a Custom Object in Salesforce
 
@@ -131,7 +130,7 @@ You will need to create a custom object with fields that correspond to each key 
     - Step 4 of 4
       - click **Save**
 9. You will be redirected to the *Custom Object - your object name* page
-![Salesforce API Name](http://i.imgur.com/tL6ar7Z.png)
+![Salesforce API Name](./png/18.png)
 
 ### Step 5: Create a Custom Case Field in Salesforce
 
@@ -157,7 +156,7 @@ We want the cases opened to contain the Device ID for our refrigerator.  To do t
     - Step 4 of 4
       - click **Save**
 9. You will be redirected to the *Case Custom Field - your field name* page
-![Salesforce Case Custom Field](http://i.imgur.com/UuEJDnh.png)
+![Salesforce Case Custom Field](./png/17.png)
 
 ### Step 6: Create a Heroku App
 
@@ -206,7 +205,7 @@ Step by step instructions to create a Heroku App:
 ![Heroku deploy](./png/12.png)
 	- Select **Dropbox** tile in the **Deployment method** section
 	- Click **Connect to Dropbox** button in the **Connect to Dropbox** section
-		- In the popup window click **Allow** button to give Heroku access to your Dropbox**
+		- In the popup window click **Allow** button to give Heroku access to your **Dropbox**
 		![Heroku - Dropbox](./png/13.png)
 	- Upload Heroku code files to your Dropbox account (Dropbox/Apps/Heroku/<your-app-name>)
 	- Enter commit message and click **Deploy** button in the **Deploy changes** section
@@ -220,7 +219,7 @@ Go to the Electric Imp IDE and select your device from the sidebar for the final
 - Click on the agent url to launch the log in page
 - Log into salesforce
 
-![IDE Screenshot](http://i.imgur.com/epCLa2O.png)
+![IDE Screenshot](./png/16.png)
 
 Your App should now be up and running.  You can monitor the device logs in the IDE, or log into Salesforce web portal to see updates there.
 
