@@ -167,7 +167,7 @@ Step by step instructions to create a Heroku App:
 2. Enter **app name** and **runtime selection**, then click **Create App** button
 ![Heroku app create](./png/2.png)
 3. Go to **Resourses** tab on the top of the page to install add-ons
-![Heroku add-ons](file:///D:/heroku/docs/3.png)
+![Heroku add-ons](./png/3.png)
 	- Install Heroku Connect add-on
 		- Type **heroku connect** in the add-ons search input and select **Heroku Connect** from the dropdown list
 		![Heroku connect add-on](./png/4.png)
