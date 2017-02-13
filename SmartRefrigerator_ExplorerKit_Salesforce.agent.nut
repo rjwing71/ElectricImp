@@ -406,7 +406,7 @@ class Application {
 
 // HEROKU APP URL
 // ----------------------------------------------------------
-local herokuURL = "https://guarded-sierra-76663.herokuapp.com/";
+local herokuURL = "<YOUR HEROKU URL HERE>";
 
 // Start Application
 Application(herokuURL);
