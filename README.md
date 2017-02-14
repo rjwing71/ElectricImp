@@ -12,6 +12,7 @@ Sample of the Salesforce/Heroku integration
   - An [Electric Imp developer account](https://ide.electricimp.com/login)
   - The Electric Imp BlinkUp app ([iOS](https://itunes.apple.com/us/app/electric-imp/id547133856) or [Android](https://play.google.com/store/apps/details?id=com.electricimp.electricimp))
   - A [Salesforce developer account](https://developer.salesforce.com/signup?d=70130000000td6N)
+  - A [free Heroku account](https://signup.heroku.com)
 
 ### Hardware
   - An Electric Imp developer kit
