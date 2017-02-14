@@ -274,7 +274,7 @@ For this step, we'll use the last option. First ensure that Salesforce1 is avail
 
 ![Salesforce1 User checkbox](http://i.imgur.com/svdRddT.png)
 
-Next we’ll emulate the Salesforce1 Mobile App in the Chrome web browser:
+Next we'll emulate the Salesforce1 Mobile App in the Chrome web browser:
 
 1. Open a new tab in your Chrome browser and open the Developer Tools by clicking *View* | *Developer* | *Developer Tools*
 2. Click the Toggle Device Mode button to simulate your browser as a mobile device.
@@ -327,7 +327,7 @@ Finally, let's add some finesse to our application by using Process Builder to d
 
 #### Setup the Process Criteria
 
-Next we’ll set up the criteria that will fire the process:
+Next we'll set up the criteria that will fire the process:
 
 1. Click *Add Criteria*.
 2. For Criteria Name, enter *Related to SmartFridge*.
@@ -364,7 +364,7 @@ Now whenever a case is created that has a related Smart Fridge, the important da
 
 #### Test Your Process
 
-Let’s try out the process by keeping the fridge door open for over 30 seconds. This should trigger Salesforce to create a case. Because the case is related to a fridge, the case will be posted to your Chatter feed.
+Let's try out the process by keeping the fridge door open for over 30 seconds. This should trigger Salesforce to create a case. Because the case is related to a fridge, the case will be posted to your Chatter feed.
 
 ![Chatter](http://i.imgur.com/yT8bR09.png)
 
