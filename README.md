@@ -96,7 +96,7 @@ You will need to create a custom object with fields that correspond to each key 
       - **Display Format** - for example *R-{0000}*
     - When above info is filled out click **Save**
 5. On the **Custom Objects Page** click on your object name
-6. You will be redirected to the *Custom Object - your object name* page <br> You will repeat step 7 four times to add fields for each sensor reading collected <br> The **Field Name** must match the data table from the device. The **Field Names** in the exmple code are: **temperature**, **humidity** , **door**, **ts**.
+6. You will be redirected to the *Custom Object - your object name* page <br> You will repeat step 7 four times to add fields for each sensor reading collected <br> The **Field Name** must match the data table from the device. The **Field Names** in the example code are: **temperature**, **humidity** , **door**, **ts**.
 7. At the bottom of the page under **Custom Fields & Relationships** click the **New** button
     - Step 1 *Data Type*
       - Select **Number** for temperature and humidity, **Text** for door, or **Date/Time** for ts
@@ -144,7 +144,7 @@ We want the cases opened to contain the Device ID for our refrigerator.  To do t
 ![Salesforce Case Custom Field](http://i.imgur.com/XJf6KSg.png)
 4. In the **New Custom Field** form fill in:
     - Step 1 *Data Type*
-      - Select **Lookup**
+      - Select **Lookup Relationship**
       - then click **Next** button
       - Select "SmartFridge" as the related object
     - Step 2 of 4
@@ -208,7 +208,7 @@ Step by step instructions to create a Heroku App:
 	- Click **Connect to Dropbox** button in the **Connect to Dropbox** section
 		- In the popup window click **Allow** button to give Heroku access to your **Dropbox**
 		![Heroku - Dropbox](./png/13.png)
-	- Upload Heroku code files to your Dropbox account (Dropbox/Apps/Heroku/\<your-app-name\>)
+	- Upload [Heroku code](./HerokuApp) files to your Dropbox account (Dropbox/Apps/Heroku/\<your-app-name\>)
 	- Enter commit message and click **Deploy** button in the **Deploy changes** section
 	![Heroku - Dropbox - deploy](./png/14.png)
 
@@ -216,6 +216,7 @@ Step by step instructions to create a Heroku App:
 
 Go to the Electric Imp IDE and select your device from the sidebar for the final setup steps.
 
+- Open the Electric Imp IDE & select your device. Find the *HEROKU APP URL* section at the bottom of the Agent code and enter ![**URL of your Heroku application.**](./png/19.png)
 - Hit **Build and Run** to save and launch the code
 - Click on the agent url to launch the log in page
 - Log into salesforce
