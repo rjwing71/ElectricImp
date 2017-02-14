@@ -264,7 +264,7 @@ For this step, we'll use the last option. First ensure that Salesforce1 is avail
 
 1. Log in to your Developer Edition.
 2. In the top nav, click *Setup*.
-3. In Setup, enter Salesforce1 into the Quick Find box and select *Administer* | *Salesforce1* | *Salesforce1 Settings*.
+3. In Setup, enter Salesforce1 into the Quick Find box and select *Mobile Administration* | *Salesforce1* | *Salesforce1 Settings*.
 4. Ensure the Enable the Salesforce1 mobile browser app is checked.
 
 ![App settings checkbox](http://i.imgur.com/Tigi9eK.png)
@@ -348,7 +348,7 @@ In the Immediate Actions box next to your new criteria, click *Add Action* and c
 2. Action name: *Post SmartFridge Case Data*
 3. Post to: *User*
 4. User: *Select a user from a record*
-5. Click in the Find a user... box, select *OwnerID*, and then click *Choose*.
+5. Click in the Find a user... box, select *Owner ID (User)*, select *User ID*, and then click *Choose*.
 6. Copy and paste the following text into the Add a message, mention a user or group... text box:
 
 ```The case ({![Case].Id}) was opened regarding the Smart Fridge {![Case].Related_Fridge__r.DeviceId__c}. This fridge was recorded at a temperature of {![Case].Related_Fridge__r.Temperature__c}, humidity of {![Case].Related_Fridge__r.Humidity__c}, and a door status of {![Case].Related_Fridge__r.Door__c}.```
