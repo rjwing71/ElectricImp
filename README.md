@@ -216,7 +216,7 @@ Step by step instructions to create a Heroku App:
 
 Go to the Electric Imp IDE and select your device from the sidebar for the final setup steps.
 
-- Open the Electric Imp IDE & select your device. Find the *HEROKU APP URL* section at the bottom of the Agent code and enter ![URL of the Heroku application](./png/19.png).
+- Open the Electric Imp IDE & select your device. Find the *HEROKU APP URL* section at the bottom of the Agent code and enter [**URL of the Heroku application**](./png/19.png).
 - Hit **Build and Run** to save and launch the code
 - Click on the agent url to launch the log in page
 - Log into salesforce
