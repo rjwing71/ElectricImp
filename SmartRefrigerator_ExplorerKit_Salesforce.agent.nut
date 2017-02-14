@@ -246,6 +246,7 @@ class Application {
             if (k == "ts") { v = formatTimestamp(v); }
             body[k + "__c"] <- v;
         }
+        body["deviceId__c"] <- _deviceID;
 
         _request("POST", "sobjects/Update", http.jsonencode(body), cb);
     }
