@@ -23,6 +23,11 @@ And if you want to install the board into a fridge:
 
   - 3 AA Batteries
 
+### Software
+ - [Agent code](./SmartRefrigerator_ExplorerKit_Salesforce.agent.nut)
+ - [Device code](./SmartRefrigerator_ExplorerKit_Salesforce.device.nut)
+ - [Heroku application](./HerokuApp) files
+
 ## Getting Started
 
 ### Step 1: Setup the Electric Imp hardware
@@ -202,13 +207,13 @@ Step by step instructions to create a Heroku App:
 				1. Select **Write to Salesforce any updates to your database** checkbox
 				2. Select **Description**, **Subject**, **Related_Fridge__c**, **Related_Fridge__r__deviceId__c** fields
 			- Click **Save** button			
-4. Go to **Deploy** tab on the top of the page to deploy heroku code
+4. Go to **Deploy** tab on the top of the page to deploy heroku application files
 ![Heroku deploy](./png/12.png)
 	- Select **Dropbox** tile in the **Deployment method** section
 	- Click **Connect to Dropbox** button in the **Connect to Dropbox** section
 		- In the popup window click **Allow** button to give Heroku access to your **Dropbox**
 		![Heroku - Dropbox](./png/13.png)
-	- Upload [Heroku code](./HerokuApp) files to your Dropbox account (Dropbox/Apps/Heroku/\<your-app-name\>)
+	- Upload [Heroku application](./HerokuApp) files (index.js, package.json and Procfile) to your Dropbox account (Dropbox/Apps/Heroku/\<your-app-name\>)
 	- Enter commit message and click **Deploy** button in the **Deploy changes** section
 	![Heroku - Dropbox - deploy](./png/14.png)
 
@@ -217,11 +222,9 @@ Step by step instructions to create a Heroku App:
 Go to the Electric Imp IDE and select your device from the sidebar for the final setup steps.
 
 - Open the Electric Imp IDE & select your device. Find the *HEROKU APP URL* section at the bottom of the Agent code and enter **URL of the Heroku application**.![URL of the Heroku application](./png/19.png)
-- Hit **Build and Run** to save and launch the code
+- Hit **Build and Run** to save and launch the code ![IDE Screenshot](./png/16.png)
 - Click on the agent url to launch the log in page
 - Log into salesforce
-
-![IDE Screenshot](./png/16.png)
 
 Your App should now be up and running.  You can monitor the device logs in the IDE, or log into Salesforce web portal to see updates there.
 
