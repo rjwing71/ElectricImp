@@ -267,9 +267,7 @@ For this step, we'll use the last option. First ensure that Salesforce1 is avail
 2. In the top nav, click *Setup*.
 3. In Setup, enter Salesforce1 into the Quick Find box and select *Mobile Administration* | *Salesforce1* | *Salesforce1 Settings*.
 4. Ensure the Enable the Salesforce1 mobile browser app is checked.
-
 ![App settings checkbox](http://i.imgur.com/Tigi9eK.png)
-
 5. In Setup, enter Users into the Quick Find box and select *Administer* | *Manage Users* | *Users*.
 6. Click *Edit* next to the name you used to create your developer edition.
 7. Ensure that Salesforce1 User is checked. (Update and save as needed.)
@@ -280,32 +278,19 @@ Next we'll emulate the Salesforce1 Mobile App in the Chrome web browser:
 
 1. Open a new tab in your Chrome browser and open the Developer Tools by clicking *View* | *Developer* | *Developer Tools*
 2. Click the Toggle Device Mode button to simulate your browser as a mobile device.
-
 ![Chrome Tools Mobile Simulator](http://i.imgur.com/hzb2F0N.png)
-
 3.To simulate the Salesforce1 app in your browser, copy and paste in the URL from the previous tab. Remove the part of the URL immediately after salesforce.com/. For example:
-
 ![URL original](http://i.imgur.com/jGgVki5.jpg)
 ![URL removed](http://i.imgur.com/t5GVzgS.jpg)
-
 4. Append `/one/one.app` to the end of the URL after salesforce.com to start the Salesforce1 Application simulator. For example:
-
 ![URL one/one.app](http://i.imgur.com/0WKCcTx.jpg)
-
 5. If the display is too small, change the size to 100%.
-
 ![URL one/one.app](http://i.imgur.com/BvmL50q.png)
-
 6. Click the three white bars in the upper left to open the left navigation
-
 7. Under the "Recent" section, scroll down and click *More*
-
 ![Menu](http://i.imgur.com/xv2YL52.png)
-
 8. You will see "SmartFridges" somewhere on the list. Click *SmartFridges*
-
 ![Menu](http://i.imgur.com/GHcC0gG.png)
-
 9. Select a record to view the details of the reading.
 
 
