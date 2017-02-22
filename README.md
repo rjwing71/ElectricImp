@@ -111,7 +111,7 @@ You will need to create a custom object with fields that correspond to each key 
       - Enter **Length** - for temperature and humidity *4*, for door *10*
       - Enter **Decimal Places** - for temperature and humidity *2*
       - Enter **Field Name** - this must match the keys from the device code, *temperature*, *humidity*, *door*, or *ts*
-      - Enter **Description** - for example *Temperature reading in °C*
+      - Enter **Description** - for example *Temperature reading in Â°C*
       - then click **Next** button
     - Step 3 of 4
       - click **Next** button
@@ -259,9 +259,9 @@ First, let's give the custom object a tab so that Salesforce1 can add it to the 
 
 You can access the Salesforce1 mobile app in three ways:
 
-*As a downloadable mobile app (Salesforce1) that you install on your phone from the Apple AppStore or Google Play
-*By navigating to `login.salesforce.com` using a mobile browser
-*By using the Chrome Developer Tools
+* As a downloadable mobile app (Salesforce1) that you install on your phone from the Apple AppStore or Google Play
+* By navigating to `login.salesforce.com` using a mobile browser
+* By using the Chrome Developer Tools
 
 For this step, we'll use the last option. First ensure that Salesforce1 is available through a desktop browser and is enabled for your user:
 
