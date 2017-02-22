@@ -250,9 +250,7 @@ First, let's give the custom object a tab so that Salesforce1 can add it to the 
 4. Under Custom Object Tabs, click *New*
 5. Choose *SmartFridge* from the Object dropdown
 6. Choose Thermometer as the Tab Style
-
 ![Custom Object](http://i.imgur.com/eXyOmd6.png)
-
 7. Click *Next*, *Next*, and then *Save*
 
 #### Open Salesforce1 in Chrome
