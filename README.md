@@ -279,7 +279,7 @@ Next we'll emulate the Salesforce1 Mobile App in the Chrome web browser:
 1. Open a new tab in your Chrome browser and open the Developer Tools by clicking *View* | *Developer* | *Developer Tools*
 2. Click the Toggle Device Mode button to simulate your browser as a mobile device.
 ![Chrome Tools Mobile Simulator](http://i.imgur.com/hzb2F0N.png)
-3.To simulate the Salesforce1 app in your browser, copy and paste in the URL from the previous tab. Remove the part of the URL immediately after salesforce.com/. For example:
+3. To simulate the Salesforce1 app in your browser, copy and paste in the URL from the previous tab. Remove the part of the URL immediately after salesforce.com/. For example:
 ![URL original](http://i.imgur.com/jGgVki5.jpg)
 ![URL removed](http://i.imgur.com/t5GVzgS.jpg)
 4. Append `/one/one.app` to the end of the URL after salesforce.com to start the Salesforce1 Application simulator. For example:
