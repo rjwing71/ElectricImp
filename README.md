@@ -81,6 +81,8 @@ The Electric Imp IDE provides all the tools you need to write and deploy the sof
 
 ### Step 3: Create a Custom Object in Salesforce
 
+**NOTE:** to follow this instruction please switch to the Salesforce Classic view by clicking on the profile icon at the top right corner of the screen and selecting `Switch to Salesforce Classic`
+
 #### Creating a Custom Object in Salesforce
 
 You will need to create a custom object with fields that correspond to each key in the reading table.  Here are the step by step instructions for creating a Custom Object:
@@ -111,7 +113,7 @@ You will need to create a custom object with fields that correspond to each key 
       - Enter **Length** - for temperature and humidity *4*, for door *10*
       - Enter **Decimal Places** - for temperature and humidity *2*
       - Enter **Field Name** - this must match the keys from the device code, *temperature*, *humidity*, *door*, or *ts*
-      - Enter **Description** - for example *Temperature reading in °C*
+      - Enter **Description** - for example *Temperature reading in Â°C*
       - then click **Next** button
     - Step 3 of 4
       - click **Next** button
@@ -250,18 +252,16 @@ First, let's give the custom object a tab so that Salesforce1 can add it to the 
 4. Under Custom Object Tabs, click *New*
 5. Choose *SmartFridge* from the Object dropdown
 6. Choose Thermometer as the Tab Style
-
 ![Custom Object](http://i.imgur.com/eXyOmd6.png)
-
 7. Click *Next*, *Next*, and then *Save*
 
 #### Open Salesforce1 in Chrome
 
 You can access the Salesforce1 mobile app in three ways:
 
-*As a downloadable mobile app (Salesforce1) that you install on your phone from the Apple AppStore or Google Play
-*By navigating to `login.salesforce.com` using a mobile browser
-*By using the Chrome Developer Tools
+* As a downloadable mobile app (Salesforce1) that you install on your phone from the Apple AppStore or Google Play
+* By navigating to `login.salesforce.com` using a mobile browser
+* By using the Chrome Developer Tools
 
 For this step, we'll use the last option. First ensure that Salesforce1 is available through a desktop browser and is enabled for your user:
 
@@ -269,9 +269,7 @@ For this step, we'll use the last option. First ensure that Salesforce1 is avail
 2. In the top nav, click *Setup*.
 3. In Setup, enter Salesforce1 into the Quick Find box and select *Mobile Administration* | *Salesforce1* | *Salesforce1 Settings*.
 4. Ensure the Enable the Salesforce1 mobile browser app is checked.
-
 ![App settings checkbox](http://i.imgur.com/Tigi9eK.png)
-
 5. In Setup, enter Users into the Quick Find box and select *Administer* | *Manage Users* | *Users*.
 6. Click *Edit* next to the name you used to create your developer edition.
 7. Ensure that Salesforce1 User is checked. (Update and save as needed.)
@@ -282,32 +280,19 @@ Next we'll emulate the Salesforce1 Mobile App in the Chrome web browser:
 
 1. Open a new tab in your Chrome browser and open the Developer Tools by clicking *View* | *Developer* | *Developer Tools*
 2. Click the Toggle Device Mode button to simulate your browser as a mobile device.
-
 ![Chrome Tools Mobile Simulator](http://i.imgur.com/hzb2F0N.png)
-
-3.To simulate the Salesforce1 app in your browser, copy and paste in the URL from the previous tab. Remove the part of the URL immediately after salesforce.com/. For example:
-
+3. To simulate the Salesforce1 app in your browser, copy and paste in the URL from the previous tab. Remove the part of the URL immediately after salesforce.com/. For example:
 ![URL original](http://i.imgur.com/jGgVki5.jpg)
 ![URL removed](http://i.imgur.com/t5GVzgS.jpg)
-
 4. Append `/one/one.app` to the end of the URL after salesforce.com to start the Salesforce1 Application simulator. For example:
-
 ![URL one/one.app](http://i.imgur.com/0WKCcTx.jpg)
-
 5. If the display is too small, change the size to 100%.
-
 ![URL one/one.app](http://i.imgur.com/BvmL50q.png)
-
 6. Click the three white bars in the upper left to open the left navigation
-
 7. Under the "Recent" section, scroll down and click *More*
-
 ![Menu](http://i.imgur.com/xv2YL52.png)
-
 8. You will see "SmartFridges" somewhere on the list. Click *SmartFridges*
-
 ![Menu](http://i.imgur.com/GHcC0gG.png)
-
 9. Select a record to view the details of the reading.
 
 
