@@ -81,7 +81,7 @@ The Electric Imp IDE provides all the tools you need to write and deploy the sof
 
 ### Step 3: Create a Custom Object in Salesforce
 
-**NOTE: to follow this instruction please switch to the Salesforce Classic view by clicking on the profile icon at the top right corner of the screen and selecting `Switch to Salesforce Classic`**
+**NOTE:** to follow this instruction please switch to the Salesforce Classic view by clicking on the profile icon at the top right corner of the screen and selecting `Switch to Salesforce Classic`
 
 #### Creating a Custom Object in Salesforce
 
