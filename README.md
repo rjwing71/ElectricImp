@@ -359,4 +359,4 @@ Let's try out the process by keeping the fridge door open for over 30 seconds. T
 
 ## License
 
-The Salesforce library is licensed under the [MIT License](./LICENSE).
+The Sample of the Salesforce/Heroku integration is licensed under the [MIT License](./LICENSE).
