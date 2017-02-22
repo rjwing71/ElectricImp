@@ -93,12 +93,12 @@ function sUpdate(query, received){
                 if (!['door__c', 'temperature__c', 'humidity__c', 'ts__c'].includes(key)) continue;
                 let value = query[key];
                 switch (typeof(value)) {
-                    case "number": changes.push(key + "=" + value); break;
-                    case "string": changes.push(key + "='" + value + "'"); break;
+                    case "number": changes.push(`${key}=${value}`); break;
+                    case "string": changes.push(`${key}='${value}'`); break;
                 }
             }
             if (changes.length > 0) {
-                client.query("SELECT deviceId__c FROM " + TABLE_NAMES['fridge'] + " WHERE deviceId__c='" + query['deviceId__c'] + "'", function(err, result) {
+                client.query(`SELECT deviceId__c FROM ${TABLE_NAMES['fridge']} WHERE deviceId__c='${query['deviceId__c']}'`, function(err, result) {
                     if (err) {
                         reject({
                             'code': 500, 
@@ -112,9 +112,13 @@ function sUpdate(query, received){
                     }
                     let sql;
                     if (result.rows.length > 0) {
-                        sql = "UPDATE " + TABLE_NAMES['fridge'] + " SET " + changes.join(',') + " WHERE deviceId__c='" + query['deviceId__c'] + "'";
+                        sql = `UPDATE ${TABLE_NAMES['fridge']} SET ${changes.join(',')} WHERE deviceId__c='${query['deviceId__c']}'`;
                     } else {
-                        sql = "INSERT INTO " + TABLE_NAMES['fridge'] + " (deviceId__c, door__c, temperature__c, humidity__c, ts__c) VALUES ('" + query['deviceId__c'] + "', '" + (query['door__c'] === undefined ? 'closed' : query['door__c']) + "', " + (query['temperature__c'] === undefined ? 0 : query['temperature__c']) + ", " + (query['humidity__c'] === undefined ? 0 : query['humidity__c']) + ", '" + (query['ts__c'] === undefined ? '2000-01-01T00:00:00Z' : query['ts__c']) + "')";
+						let door__c = query['door__c'] === undefined ? 'closed' : query['door__c'];
+						let temperature__c = query['temperature__c'] === undefined ? 0 : query['temperature__c'];
+						let humidity__c = query['humidity__c'] === undefined ? 0 : query['humidity__c'];
+						let ts__c = query['ts__c'] === undefined ? '2000-01-01T00:00:00Z' : query['ts__c'];
+                        sql = `INSERT INTO ${TABLE_NAMES['fridge']} (deviceId__c, door__c, temperature__c, humidity__c, ts__c) VALUES ('${query['deviceId__c']}', '${door__c}', ${temperature__c}, ${humidity__c}, '${ts__c}')`;
                     }
                     client.query(sql, function(err, result) {
                         if (err) {
@@ -189,7 +193,7 @@ function sCase(query, received){
                 done();
                 return;
             }
-            client.query("SELECT deviceId__c FROM " + TABLE_NAMES['fridge'] + " WHERE deviceId__c='" + query['Related_Fridge__r']['DeviceId__c'] + "'", function(err, result) {
+            client.query(`SELECT deviceId__c FROM ${TABLE_NAMES['fridge']} WHERE deviceId__c='${query['Related_Fridge__r']['DeviceId__c']}'`, function(err, result) {
                 if (err) {
                     reject({
                         'code': 500, 
@@ -202,9 +206,9 @@ function sCase(query, received){
                     return;
                 }
                 if (result.rows.length > 0) {
-                    _sCase(query, resolve, reject, client, done);
+                    sCaseExecute(query, resolve, reject, client, done);
                 } else {
-                    let sql = "INSERT INTO " + TABLE_NAMES['fridge'] + " (deviceId__c, door__c, temperature__c, humidity__c, ts__c) VALUES ('" + query['Related_Fridge__r']['DeviceId__c'] + "', 'closed', 0, 0, '2000-01-01T00:00:00Z')";
+                    let sql = `INSERT INTO ${TABLE_NAMES['fridge']} (deviceId__c, door__c, temperature__c, humidity__c, ts__c) VALUES ('${query['Related_Fridge__r']['DeviceId__c']}', 'closed', 0, 0, '2000-01-01T00:00:00Z')`;
                     client.query(sql, function(err, result) {
                         if (err) {
                             reject({
@@ -218,7 +222,7 @@ function sCase(query, received){
                             return;
                         }
                         console.log("DONE REQUEST: " + sql);
-                        _sCase(query, resolve, reject, client, done);
+                        sCaseExecute(query, resolve, reject, client, done);
                     });
                 }
             });
@@ -226,7 +230,7 @@ function sCase(query, received){
     });
 }
 /**
- * _sCase - second part of the sCase function
+ * sCaseExecute - second part of the sCase function
  * Returns: undefined
  * Parameters:
  *     query : object - parsed query of the request
@@ -235,8 +239,8 @@ function sCase(query, received){
  *     client : object - postgres client
  *     done : function - postgres on done fuction
  */
-function _sCase(query, resolve, reject, client, done){
-    let sql = "INSERT INTO " + TABLE_NAMES['case'] + " (Subject, Description, Related_Fridge__r__deviceId__c) VALUES ('" + query['Subject'] + "', '" + query['Description'] + "', '" + query['Related_Fridge__r']['DeviceId__c'] + "') RETURNING Id";
+function sCaseExecute(query, resolve, reject, client, done){
+    let sql = `INSERT INTO ${TABLE_NAMES['case']} (Subject, Description, Related_Fridge__r__deviceId__c) VALUES ('${query['Subject']}', '${query['Description']}', '${query['Related_Fridge__r']['DeviceId__c']}') RETURNING Id`;
     client.query(sql, function(err, result) {
         if (err) {
             reject({
