@@ -1,6 +1,7 @@
 // Copyright (c) 2017 Electric Imp
 // This file is licensed under the MIT License
 // http://opensource.org/licenses/MIT
+
 'use strict';
 
 const http = require('http');
@@ -117,10 +118,10 @@ function sUpdate(query, received){
                     if (result.rows.length > 0) {
                         sql = `UPDATE ${TABLE_NAMES['fridge']} SET ${changes.join(',')} WHERE deviceId__c='${query['deviceId__c']}'`;
                     } else {
-						let door__c = query['door__c'] === undefined ? 'closed' : query['door__c'];
-						let temperature__c = query['temperature__c'] === undefined ? 0 : query['temperature__c'];
-						let humidity__c = query['humidity__c'] === undefined ? 0 : query['humidity__c'];
-						let ts__c = query['ts__c'] === undefined ? '2000-01-01T00:00:00Z' : query['ts__c'];
+                        let door__c = query['door__c'] === undefined ? 'closed' : query['door__c'];
+                        let temperature__c = query['temperature__c'] === undefined ? 0 : query['temperature__c'];
+                        let humidity__c = query['humidity__c'] === undefined ? 0 : query['humidity__c'];
+                        let ts__c = query['ts__c'] === undefined ? '2000-01-01T00:00:00Z' : query['ts__c'];
                         sql = `INSERT INTO ${TABLE_NAMES['fridge']} (deviceId__c, door__c, temperature__c, humidity__c, ts__c) VALUES ('${query['deviceId__c']}', '${door__c}', ${temperature__c}, ${humidity__c}, '${ts__c}')`;
                     }
                     client.query(sql, function(err, result) {
@@ -155,6 +156,7 @@ function sUpdate(query, received){
         });
     });
 }
+
 /**
  * sCase - update case table at postgres
  * Returns: Promise
@@ -209,7 +211,7 @@ function sCase(query, received){
                     return;
                 }
                 if (result.rows.length > 0) {
-                    sCaseExecute(query, resolve, reject, client, done);
+                    sInsertCase(query, resolve, reject, client, done);
                 } else {
                     let sql = `INSERT INTO ${TABLE_NAMES['fridge']} (deviceId__c, door__c, temperature__c, humidity__c, ts__c) VALUES ('${query['Related_Fridge__r']['DeviceId__c']}', 'closed', 0, 0, '2000-01-01T00:00:00Z')`;
                     client.query(sql, function(err, result) {
@@ -225,15 +227,16 @@ function sCase(query, received){
                             return;
                         }
                         console.log("DONE REQUEST: " + sql);
-                        sCaseExecute(query, resolve, reject, client, done);
+                        sInsertCase(query, resolve, reject, client, done);
                     });
                 }
             });
         });
     });
 }
+
 /**
- * sCaseExecute - second part of the sCase function
+ * sInsertCase - second part of the sCase function
  * Returns: undefined
  * Parameters:
  *     query : object - parsed query of the request
@@ -242,7 +245,7 @@ function sCase(query, received){
  *     client : object - postgres client
  *     done : function - postgres on done fuction
  */
-function sCaseExecute(query, resolve, reject, client, done){
+function sInsertCase(query, resolve, reject, client, done){
     let sql = `INSERT INTO ${TABLE_NAMES['case']} (Subject, Description, Related_Fridge__r__deviceId__c) VALUES ('${query['Subject']}', '${query['Description']}', '${query['Related_Fridge__r']['DeviceId__c']}') RETURNING Id`;
     client.query(sql, function(err, result) {
         if (err) {
