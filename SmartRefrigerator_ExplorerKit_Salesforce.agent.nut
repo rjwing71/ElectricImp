@@ -383,16 +383,25 @@ class Application {
         if (cb != null) {
             req.sendasync( function(resp) {
                 local data = {};
-                try { 
-                    data = http.jsondecode(resp.body);
-                } catch (ex) { 
-                    data = { }; 
-                }
+                local error = null;
                 if (resp.statuscode >= 200 && resp.statuscode < 300) {
-                    cb(null, data);
+                    try {
+                        data = http.jsondecode(resp.body);
+                    } catch (ex) {
+                        error = {
+                            "error" : "Error parsing response"
+                        };
+                    }
+                } else if (resp.statuscode == 3 || resp.statuscode == 6) {
+                    error = {
+                        "error" : "Wrong Heroku URL"
+                    };
                 } else {
-                    cb(data, null);
+                    error = {
+                        "error" : "Error sending the request (status=" + resp.statuscode + ")"
+                    };
                 }
+                cb(error, data);
             }.bindenv(this));
         } else {
             local resp = req.sendsync();
@@ -403,7 +412,12 @@ class Application {
 
 // HEROKU APP URL
 // ----------------------------------------------------------
-local herokuURL = "<YOUR HEROKU URL HERE>";
+local herokuURL = ""; // YOUR HEROKU APPLICATION URL GOES HERE
+
+if (!herokuURL.len()) {
+    server.error("Please set your Heroku Application URL (herokuURL variable)")
+}
 
 // Start Application
 Application(herokuURL);
+
