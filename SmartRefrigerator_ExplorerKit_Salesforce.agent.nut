@@ -1,7 +1,17 @@
+// Copyright (c) 2017 Electric Imp
+// This file is licensed under the MIT License
+// http://opensource.org/licenses/MIT
+
 //line 1 "agent.nut"
 // Utility Libraries
 #require "Rocky.class.nut:1.2.3"
 #require "bullwinkle.class.nut:2.3.2"
+
+// Event types (these should match device side event types in SmartFrigDataManager)
+const SMART_FRIG_EVENT_DOOR_ALERT = "Refrigerator Door Open";
+const SMART_FRIG_EVENT_TEMP_ALERT = "Temperature Over Threshold";
+const SMART_FRIG_EVENT_HUMID_ALERT = "Humidity Over Threshold";
+const SMART_FRIG_EVENT_DOOR_STATUS = "door status";
 
 // Class that receives and handles data sent from device SmartFridgeApp
 //line 1 "SmartFrigDataManager.class.nut"
@@ -17,12 +27,6 @@
 class SmartFrigDataManager {
 
     static DEBUG_LOGGING = true;
-
-    // Event types (these should match device side event types in SmartFrigDataManager)
-    static EVENT_TYPE_TEMP_ALERT = "temperaure alert";
-    static EVENT_TYPE_HUMID_ALERT = "humidity alert";
-    static EVENT_TYPE_DOOR_ALERT = "door alert";
-    static EVENT_TYPE_DOOR_STATUS = "door status";
 
     _streamReadingsHandler = null;
     _doorOpenAlertHandler = null;
@@ -155,16 +159,16 @@ class SmartFrigDataManager {
             // handle events
             foreach (event in data.events) {
                 switch (event.type) {
-                    case EVENT_TYPE_TEMP_ALERT :
+                    case SMART_FRIG_EVENT_TEMP_ALERT :
                         _tempAlertHandler(event);
                         break;
-                    case EVENT_TYPE_HUMID_ALERT :
+                    case SMART_FRIG_EVENT_HUMID_ALERT :
                         _humidAlertHandler(event);
                         break;
-                    case EVENT_TYPE_DOOR_ALERT :
+                    case SMART_FRIG_EVENT_DOOR_ALERT :
                         _doorOpenAlertHandler(event);
                         break;
-                    case EVENT_TYPE_DOOR_STATUS :
+                    case SMART_FRIG_EVENT_DOOR_STATUS :
                         break;
                 }
             }
@@ -186,10 +190,6 @@ class SmartFrigDataManager {
  *      SmartFrigDataManager Class
  **************************************************************************************/
 class Application {
-
-    static DOOR_ALERT = "Refrigerator Door Open";
-    static TEMP_ALERT = "Temperature Over Threshold";
-    static HUMID_ALERT = "Humidity Over Threshold";
 
     _dm = null;
     _deviceID = null;
@@ -289,8 +289,8 @@ class Application {
     function doorOpenHandler(event) {
         // { "description": "door has been open for 33 seconds", "type": "door alert", "ts": 1478110044 }
         local description = format("Refrigerator with id %s %s.", _deviceID, event.description);
-        server.log(DOOR_ALERT + ": " + description);
-        openCase(DOOR_ALERT, description, caseResponseHandler);
+        server.log(SMART_FRIG_EVENT_DOOR_ALERT + ": " + description);
+        openCase(SMART_FRIG_EVENT_DOOR_ALERT, description, caseResponseHandler);
     }
 
     /***************************************************************************************
@@ -301,8 +301,8 @@ class Application {
      **************************************************************************************/
     function tempAlertHandler(event) {
         local description = format("Refrigerator with id %s %s. Current temperature is %s°C.", _deviceID, event.description, event.latestReading.tostring());
-        server.log(TEMP_ALERT + ": " + description);
-        openCase(TEMP_ALERT, description, caseResponseHandler);
+        server.log(SMART_FRIG_EVENT_TEMP_ALERT + ": " + description);
+        openCase(SMART_FRIG_EVENT_TEMP_ALERT, description, caseResponseHandler);
     }
 
     /***************************************************************************************
@@ -313,8 +313,8 @@ class Application {
      **************************************************************************************/
     function humidAlertHandler(event) {
         local description = format("Refrigerator with id %s %s. Current humidity is %s%s.", _deviceID, event.description, event.latestReading.tostring(), "%");
-        server.log(HUMID_ALERT + ": " + description);
-        openCase(HUMID_ALERT, description, caseResponseHandler);
+        server.log(SMART_FRIG_EVENT_HUMID_ALERT + ": " + description);
+        openCase(SMART_FRIG_EVENT_HUMID_ALERT, description, caseResponseHandler);
     }
 
     /***************************************************************************************
@@ -400,10 +400,6 @@ class Application {
         }
     }
 }
-
-
-// RUNTIME
-// ---------------------------------------------------------------------------------
 
 // HEROKU APP URL
 // ----------------------------------------------------------

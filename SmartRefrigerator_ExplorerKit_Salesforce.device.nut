@@ -1,3 +1,7 @@
+// Copyright (c) 2017 Electric Imp
+// This file is licensed under the MIT License
+// http://opensource.org/licenses/MIT
+
 //line 1 "device.nut"
 // Utility Libraries
 #require "promise.class.nut:3.0.0"
@@ -300,10 +304,10 @@ class SmartFridgeApp {
     // Time in seconds after door close event before env events will be checked (prevents temperature or humidity alerts right after is opened)
     static DOOR_CONDITION_TIMEOUT = 180;
 
-    // Event types (these should match agent side event types in SmartFrigDataManager)
-    static EVENT_TYPE_TEMP_ALERT = "temperaure alert";
-    static EVENT_TYPE_HUMID_ALERT = "humidity alert";
-    static EVENT_TYPE_DOOR_ALERT = "door alert";
+    // Event types (these should match agent side event types)
+    static EVENT_TYPE_TEMP_ALERT = "Temperature Over Threshold";
+    static EVENT_TYPE_HUMID_ALERT = "Humidity Over Threshold";
+    static EVENT_TYPE_DOOR_ALERT = "Refrigerator Door Open";
     static EVENT_TYPE_DOOR_STATUS = "door status";
 
     // Door status strings
