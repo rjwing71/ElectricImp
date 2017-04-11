@@ -2,6 +2,8 @@
 
 Example of Salesforce integration via a custom Heroku application. This is accomplished via the Salesforce/Heroku connector rather than the FORCE.com REST API used in the [Salesforce FORCE.com integration](https://github.com/electricimp/Salesforce).
 
+**Important Note**: The provided example is for illustration purposes. It can be used as a starting point for use-case specific integrations.
+
 ## Intro - What you need
 
 ### General
