@@ -2,7 +2,7 @@
     "name": "imp_heroku_salesforce",
     "version": "1.0.0",
      "engines": {
-         "node": "6.11.1"
+         "node": "8.1.x"
      },
     "description": "imp_heroku_salesforce app",
     "main": "index.js",
